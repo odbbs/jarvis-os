@@ -31,22 +31,21 @@ export default function ToolsPage() {
     { name: "memory.save", description: "Save to memory", risk_level: "SAFE", requires_approval: false },
   ];
 
-  const displayTools = tools.length > 0 ? tools : defaultTools;
+  const display = tools.length > 0 ? tools : defaultTools;
 
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Tools</h1>
       <div className="grid gap-4">
-        {displayTools.map((tool, i) => (
-          <div key={i} className="jarvis-card flex items-center justify-between">
+        {loading && <p className="text-gray-400">Loading...</p>}
+        {display.map((tool, i) => (
+          <div key={i} className="bg-white rounded-lg shadow p-6 flex items-center justify-between">
             <div>
               <h2 className="text-lg font-semibold text-gray-900">{tool.name}</h2>
               <p className="text-sm text-gray-600">{tool.description}</p>
             </div>
             <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-              tool.risk_level === "SAFE" ? "bg-green-100 text-green-700" :
-              tool.risk_level === "APPROVAL_REQUIRED" ? "bg-yellow-100 text-yellow-700" :
-              "bg-red-100 text-red-700"
+              tool.risk_level === "SAFE" ? "bg-green-100 text-green-700" : "bg-yellow-100 text-yellow-700"
             }`}>
               {tool.risk_level === "SAFE" ? "Safe" : "Approval Required"}
             </span>

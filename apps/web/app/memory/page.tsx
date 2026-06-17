@@ -42,10 +42,14 @@ export default function MemoryPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Save */}
-        <div className="jarvis-card">
+        <div className="bg-white rounded-lg shadow p-6">
           <h2 className="text-lg font-semibold mb-4">Save Memory</h2>
           <div className="space-y-3">
-            <select className="jarvis-select" value={namespace} onChange={(e) => setNamespace(e.target.value)}>
+            <select
+              className="w-full px-3 py-2 border border-gray-300 rounded bg-white focus:outline-none focus:ring-2 focus:ring-[#8DC63F]"
+              value={namespace}
+              onChange={(e) => setNamespace(e.target.value)}
+            >
               <option value="personal">Personal</option>
               <option value="system">System</option>
               <option value="project:aligna">Project: Aligna</option>
@@ -55,28 +59,34 @@ export default function MemoryPage() {
               <option value="tasks">Tasks</option>
             </select>
             <textarea
-              className="jarvis-input h-32 resize-none"
+              className="w-full px-3 py-2 border border-gray-300 rounded h-32 resize-none focus:outline-none focus:ring-2 focus:ring-[#8DC63F]"
               placeholder="What would you like to remember?"
               value={content}
               onChange={(e) => setContent(e.target.value)}
             />
-            <button className="jarvis-btn-primary" onClick={saveMemory}>
+            <button
+              className="px-4 py-2 rounded font-medium text-white bg-[#8DC63F] hover:bg-[#76b02a] transition-colors"
+              onClick={saveMemory}
+            >
               Save
             </button>
           </div>
         </div>
 
         {/* Search */}
-        <div className="jarvis-card">
+        <div className="bg-white rounded-lg shadow p-6">
           <h2 className="text-lg font-semibold mb-4">Search Memory</h2>
           <div className="space-y-3">
             <input
-              className="jarvis-input"
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#8DC63F]"
               placeholder="Search query..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            <button className="jarvis-btn-primary" onClick={searchMemory}>
+            <button
+              className="px-4 py-2 rounded font-medium text-white bg-[#8DC63F] hover:bg-[#76b02a] transition-colors"
+              onClick={searchMemory}
+            >
               Search
             </button>
           </div>

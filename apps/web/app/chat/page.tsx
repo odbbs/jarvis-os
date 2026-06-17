@@ -48,7 +48,7 @@ export default function ChatPage() {
           agent: data.agent,
         },
       ]);
-    } catch (err) {
+    } catch {
       setMessages((prev) => [
         ...prev,
         {
@@ -66,13 +66,21 @@ export default function ChatPage() {
     <div className="h-full flex flex-col">
       {/* Controls */}
       <div className="p-4 bg-white border-b flex flex-wrap gap-3 items-center">
-        <select className="jarvis-select text-sm" value={project} onChange={(e) => setProject(e.target.value)}>
+        <select
+          className="w-full max-w-[160px] px-3 py-2 border border-gray-300 rounded text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#8DC63F]"
+          value={project}
+          onChange={(e) => setProject(e.target.value)}
+        >
           <option value="auto">Project: Auto</option>
           <option value="aligna">Aligna</option>
           <option value="raf4">RAF4</option>
           <option value="oddb">ODDB</option>
         </select>
-        <select className="jarvis-select text-sm" value={agent} onChange={(e) => setAgent(e.target.value)}>
+        <select
+          className="w-full max-w-[200px] px-3 py-2 border border-gray-300 rounded text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#8DC63F]"
+          value={agent}
+          onChange={(e) => setAgent(e.target.value)}
+        >
           <option value="commander">Agent: Commander</option>
           <option value="coding-supervisor">Coding Supervisor</option>
           <option value="project-agent">Project Agent</option>
@@ -81,18 +89,26 @@ export default function ChatPage() {
           <option value="memory">Memory</option>
           <option value="automation">Automation</option>
         </select>
-        <select className="jarvis-select text-sm" value={model} onChange={(e) => setModel(e.target.value)}>
+        <select
+          className="w-full max-w-[180px] px-3 py-2 border border-gray-300 rounded text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#8DC63F]"
+          value={model}
+          onChange={(e) => setModel(e.target.value)}
+        >
           <option value="auto">Model: Auto</option>
           <option value="gpt">GPT</option>
           <option value="claude">Claude Code</option>
           <option value="deepseek">DeepSeek</option>
           <option value="moonshot">Moonshot</option>
         </select>
-        <select className="jarvis-select text-sm" value={mode} onChange={(e) => setMode(e.target.value)}>
+        <select
+          className="w-full max-w-[180px] px-3 py-2 border border-gray-300 rounded text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#8DC63F]"
+          value={mode}
+          onChange={(e) => setMode(e.target.value)}
+        >
           <option value="chat">Mode: Chat</option>
           <option value="plan">Plan</option>
-          <option value="execute">Execute (Coming Soon)</option>
-          <option value="review">Review (Coming Soon)</option>
+          <option value="execute">Execute</option>
+          <option value="review">Review</option>
         </select>
       </div>
 
@@ -146,13 +162,17 @@ export default function ChatPage() {
         <div className="flex gap-3 max-w-4xl mx-auto">
           <input
             type="text"
-            className="jarvis-input flex-1"
+            className="flex-1 px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#8DC63F]"
             placeholder="Type your message..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && sendMessage()}
           />
-          <button className="jarvis-btn-primary" onClick={sendMessage} disabled={loading}>
+          <button
+            className="px-4 py-2 rounded font-medium text-white bg-[#8DC63F] hover:bg-[#76b02a] transition-colors disabled:opacity-50"
+            onClick={sendMessage}
+            disabled={loading}
+          >
             Send
           </button>
         </div>

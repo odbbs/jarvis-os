@@ -21,24 +21,22 @@ export default function ProjectsPage() {
       .finally(() => setLoading(false));
   }, []);
 
+  const defaultProjects: Project[] = [
+    { id: "auto", name: "Auto", description: "Automatic project detection", status: "active" },
+    { id: "aligna", name: "Aligna", description: "Career Readiness Assessment Platform", status: "placeholder" },
+    { id: "raf4", name: "RAF4", description: "RAF4 Project", status: "placeholder" },
+    { id: "oddb", name: "ODDB", description: "ODDB Project", status: "placeholder" },
+  ];
+
+  const display = projects.length > 0 ? projects : defaultProjects;
+
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Projects</h1>
       <div className="grid gap-4">
-        {loading ? (
-          <p className="text-gray-400">Loading...</p>
-        ) : projects.length === 0 ? (
-          <p className="text-gray-400">Backend not connected. Showing Phase 1 defaults.</p>
-        ) : null}
-
-        {/* Always show known projects */}
-        {[
-          { id: "auto", name: "Auto", description: "Automatic project detection", status: "active" },
-          { id: "aligna", name: "Aligna", description: "Career Readiness Assessment Platform", status: "placeholder" },
-          { id: "raf4", name: "RAF4", description: "RAF4 Project", status: "placeholder" },
-          { id: "oddb", name: "ODDB", description: "ODDB Project", status: "placeholder" },
-        ].map((project) => (
-          <div key={project.id} className="jarvis-card flex items-center justify-between">
+        {loading && <p className="text-gray-400">Loading...</p>}
+        {display.map((project) => (
+          <div key={project.id} className="bg-white rounded-lg shadow p-6 flex items-center justify-between">
             <div>
               <h2 className="text-lg font-semibold text-gray-900">{project.name}</h2>
               <p className="text-sm text-gray-600">{project.description}</p>

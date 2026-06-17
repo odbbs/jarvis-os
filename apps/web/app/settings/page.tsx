@@ -4,10 +4,13 @@ export default function SettingsPage() {
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Settings</h1>
-      <div className="jarvis-card space-y-6">
+      <div className="bg-white rounded-lg shadow p-6 space-y-6">
         <div>
           <h2 className="text-lg font-semibold mb-2">Default Model</h2>
-          <select className="jarvis-select max-w-xs" defaultValue="gpt">
+          <select
+            className="w-full max-w-xs px-3 py-2 border border-gray-300 rounded bg-white focus:outline-none focus:ring-2 focus:ring-[#8DC63F]"
+            defaultValue="gpt"
+          >
             <option value="gpt">GPT</option>
             <option value="claude">Claude Code</option>
             <option value="deepseek">DeepSeek</option>

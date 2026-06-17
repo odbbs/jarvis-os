@@ -30,14 +30,15 @@ export default function AgentsPage() {
     { name: "Automation", description: "Workflow automation", status: "placeholder" },
   ];
 
-  const displayAgents = agents.length > 0 ? agents : defaultAgents;
+  const display = agents.length > 0 ? agents : defaultAgents;
 
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Agents</h1>
       <div className="grid gap-4">
-        {displayAgents.map((agent, i) => (
-          <div key={i} className="jarvis-card flex items-center justify-between">
+        {loading && <p className="text-gray-400">Loading...</p>}
+        {display.map((agent, i) => (
+          <div key={i} className="bg-white rounded-lg shadow p-6 flex items-center justify-between">
             <div>
               <h2 className="text-lg font-semibold text-gray-900">{agent.name}</h2>
               <p className="text-sm text-gray-600">{agent.description}</p>
