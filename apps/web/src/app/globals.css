@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --jarvis-green: #8DC63F;
+  --jarvis-dark: #1a1a2e;
+  --jarvis-accent: #00BCD4;
+}
+
+body {
+  background-color: #f3f4f6;
+}
+
+.jarvis-gradient {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
